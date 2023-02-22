@@ -61,6 +61,7 @@
             // 
             // Exercise3
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 423);
@@ -71,6 +72,7 @@
             this.Text = "Exercise3";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Exercise3_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Exercise3_DragEnter);
+            this.DragLeave += new System.EventHandler(this.Exercise3_DragLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 

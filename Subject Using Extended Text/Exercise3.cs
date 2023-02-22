@@ -33,24 +33,31 @@ namespace Subject_Using_Extended_Text
 
         private void Exercise3_DragDrop(object sender, DragEventArgs e)
         {
-            MessageBox.Show(e.Data.ToString());
+            string[] path = (string[])e.Data.GetData(DataFormats.FileDrop);
+            MessageBox.Show($" Path: {path[0]}");
             try
-            {            
-                StreamReader reader = new StreamReader(e.Data.ToString());
-                richTextBox1.Text= reader.ReadToEnd();
+            {
+                StreamReader reader = new StreamReader(path[0]);
+                richTextBox1.Text = reader.ReadToEnd();
+
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("=(");
             }
         }
 
         private void Exercise3_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Text))
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 e.Effect = DragDropEffects.Copy;
             }
 
+        }
+     
+        private void Exercise3_DragLeave(object sender, EventArgs e)
+        {
         }
     }
 }
